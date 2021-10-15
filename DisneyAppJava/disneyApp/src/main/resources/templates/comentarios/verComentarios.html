@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="layouts/base-layout :: head">
+
+</head>
+<body>
+	
+	<nav th:replace = "layouts/base-layout :: nav"></nav>
+	
+	<div class="container mt-5">
+		<div class="row justify-content-start">
+			<div class="col-4">
+				<img  th:src="@{'/uploads/' + ${pelicula.portada}}" th:alt="${pelicula.portada}" style= "width:100px">
+			</div>
+		</div>
+	
+	</div>
+	
+	<div>
+		<p th:text ="${pelicula.titulo}"></p>
+	</div>
+	
+</body>
+</html>	

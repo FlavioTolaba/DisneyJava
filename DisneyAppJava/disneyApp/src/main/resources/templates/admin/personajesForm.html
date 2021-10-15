@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace= "layouts/base-layout :: head"></head>
+<body>
+
+	<nav th:replace= "layouts/base-layout :: nav"></nav>
+	
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-6">
+				<div class="alert alert-success" th:if= "${personajeGuardado}" th:text="${personajeGuardado}"></div>
+				<form th:action= "@{/personajes/save}" th:object= "${personaje}" method="POST">
+				
+					<select class="form-select" th:field="*{pelicula}">
+						<option th:value= "${film.id}" th:text= "${film.titulo}">
+			
+						</option>
+					</select>
+					<h4 class="text-center mt-4">Personajes</h4>
+					
+					<div class="form-group my-2">
+						<input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre"/>
+					</div>
+					<div class="form-group my-2">
+						<input type="number" name="edad" th:field="*{edad}" class="form-control" placeholder="Edad"/>
+					</div>
+					<div class="form-group my-2">
+						<input type="number" th:field="*{peso}" class="form-control" placeholder="peso"/>
+					</div>
+					<div class="form-group my-2">
+						<textarea type="text" th:field="*{historia}" class="form-control" placeholder="historia"></textarea>
+					</div>
+					<div class="form-group my-2">
+						<input type="file" name="file" class="form-control" placeholder="SomeShit"/>
+					</div>
+					<div class="form-group ">
+						<button type="submit" class="btn btn-secondary form-control">Guardar Personaje</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
